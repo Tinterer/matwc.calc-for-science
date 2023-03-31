@@ -86,75 +86,61 @@
                 <p class = "solving" id = "solve3"></p>
 
                 <script>
-                        var result;
-                        var solve; 
-                        var solve1;
-                        var solve2;
-                        var solve3;
-
-                        var s = Number(document.getElementById("S").value);
-                        var v0 = Number(document.getElementById("V0").value);
-                        var vk = Number(document.getElementById("Vk").value);
-                        var a = Number(document.getElementById("a").value);
-                        var t = Number(document.getElementById("t").value);
-
-                        y = v0 * s * vk* t * a
-                        if (y != 0) {
-                            result = 'Все данные известны.'
-                            solve = ' '
-                            solve1 = ' '
-                            solve2 = ' '
-                            solve3 = ' '
-                        }
                         
                         
                         function acceleration() {
+
+                            var result;
+                            var solve; 
+                            var solve1;
+                            var solve2;
+                            var solve3;
+
+                            var s = Number(document.getElementById("S").value);
+                            var v0 = Number(document.getElementById("V0").value);
+                            var vk = Number(document.getElementById("Vk").value);
+                            var a = Number(document.getElementById("a").value);
+                            var t = Number(document.getElementById("t").value);
+
                             y = v0 * s * vk* t * a
                             if (y != 0) {
-                                result = 'Все данные известны.'
-                                solve = ' '
-                                solve1 = ' '
-                                solve2 = ' '
-                                solve3 = ' '
-                            }
-                            if(s = 0) {
-                                q = vk - v0
-                                result = q / t
+                                result = 'Все данные известны.';
+                                solve = ' ';
+                                solve1 = ' ';
+                                solve2 = ' ';
+                                solve3 = ' ';
+                            } else if(s == 0) {
+                                q = vk - v0;
+                                result = q / t;
 
-                                solve = 'В данной ситуации следует воспользоваться формулой нахождения конечной скорости:'
-                                solve1 = 'Vк = V₀ + a•t'
-                                solve2 = '⇒ a = (Vк - V₀)/t'
-                                solve3 = 'Теперь остается только подставить значения и посчитать.'
-                            }
+                                solve = 'В данной ситуации следует воспользоваться формулой нахождения конечной скорости:';
+                                solve1 = 'Vк = V₀ + a•t';
+                                solve2 = '⇒ a = (Vк - V₀)/t';
+                                solve3 = 'Теперь остается только подставить значения и посчитать.';
+                            } else if (t == 0) {
+                                q = (vk ** 2) - (v0 ** 2);
+                                result = q / (2 * s);
 
-                            if (t = 0) {
-                                q = (vk ** 2) - (v0 ** 2)
-                                result = q / (2 * s)
+                                solve = 'В данном случае воспользуемся формулой нахождения перемещения без времени:';
+                                solve1 = 'S = (Vк² - V₀²)/2•a';
+                                solve2 = 'a = (Vк² - V₀²)/2•S';
+                                solve3 = 'Теперь остается только подставить значения и посчитать.';
+                            } else if (vk == 0) {
+                                q = (2 * v0 * t) - 2 * s;
+                                result = q / t ** 2;
 
-                                solve = 'В данном случае воспользуемся формулой нахождения перемещения без времени:'
-                                solve1 = 'S = (Vк² - V₀²)/2•a'
-                                solve2 = 'a = (Vк² - V₀²)/2•S'
-                                solve3 = 'Теперь остается только подставить значения и посчитать.'
-                            }    
+                                solve = 'В данном случае воспользуемся формулой нахождения перемещения с помощью начальной скорости, ускорения и времени:';
+                                solve1 = '  S = V₀•t - a•t²/2';
+                                solve2 = '  a = (2•V₀•t - 2•S)/t²';
+                                solve3 = 'Теперь остается только подставить значения и посчитать.';
+                            } else if (v0 == 0) {
+                                q = 2 * s - 2 * vk * t;
+                                result = q / t ** 2;
 
-                            if (vk = 0) {
-                                q = (2 * v0 * t) - 2 * s
-                                result = q / t ** 2
-
-                                solve = 'В данном случае воспользуемся формулой нахождения перемещения с помощью начальной скорости, ускорения и времени:'
-                                solve1 = '  S = V₀•t - a•t²/2'
-                                solve2 = '  a = (2•V₀•t - 2•S)/t²'
-                                solve3 = 'Теперь остается только подставить значения и посчитать.'
-                            }
-
-                            if (v0 = 0) {
-                                q = 2 * s - 2 * vk * t
-                                result = q / t ** 2
-
-                                solve = 'В данном случае воспользуемся формулой нахождения перемещения с использованием конечной скорости, ускорения и времени:'
-                                solve1 = '  S = Vк•t + a•t²/2'
-                                solve2 = '  a = (2•S - 2•Vк•t)/t²'
-                                solve3 = 'Теперь остается только подставить значения и посчитать.'
+                                solve = 'В данном случае воспользуемся формулой нахождения перемещения с использованием конечной скорости, ускорения и времени:';
+                                solve1 = '  S = Vк•t + a•t²/2';
+                                solve2 = '  a = (2•S - 2•Vк•t)/t²';
+                                solve3 = 'Теперь остается только подставить значения и посчитать.';
                             }
                             document.getElementById("result").innerHTML = result;
                             document.getElementById("solve").innerHTML = solve;
@@ -164,15 +150,28 @@
                         }
 
                         function time() {
+
+                            var result;
+                            var solve; 
+                            var solve1;
+                            var solve2;
+                            var solve3;
+
+                            var s = Number(document.getElementById("S").value);
+                            var v0 = Number(document.getElementById("V0").value);
+                            var vk = Number(document.getElementById("Vk").value);
+                            var a = Number(document.getElementById("a").value);
+                            var t = Number(document.getElementById("t").value);
+
                             y = v0 * s * vk* t * a
                             if (y != 0) {
-                                result = 'Все данные известны.'
-                                solve = ' '
+                                result = 'Все данные известны.';
+                                solve = ' ';
                                 solve1 = ' '
                                 solve2 = ' '
                                 solve3 = ' '
                             }
-                            if (s = 0) {
+                            if (s == 0) {
                                 q = vk - v0
                                 result = q / a
 
@@ -182,7 +181,7 @@
                                 solve3 = 'Теперь остается только подставить значения и посчитать.'
                             }
 
-                            if (a = 0) {
+                            if (a == 0) {
                                 q = vk + v0
                                 result = 2 * s/q
 
@@ -192,7 +191,7 @@
                                 solve3 = 'Теперь остается только подставить значения и посчитать'
                             }
 
-                            if (vk = 0) {
+                            if (vk == 0) {
                                 q = v0 - 2 * a * s
                                 i = 1/2
                                 q12 = q ** i
@@ -205,7 +204,7 @@
                                 solve3 = 'Теперь остается только подставить значения и посчитать.'
                             }
 
-                            if (v0 = 0) {
+                            if (v0 == 0) {
                                 q = vk + 2 * a * s
                                 i = 1/2
                                 q12 = q ** i
@@ -225,6 +224,19 @@
                         }
 
                         function velocity() {
+
+                            var result;
+                            var solve; 
+                            var solve1;
+                            var solve2;
+                            var solve3;
+
+                            var s = Number(document.getElementById("S").value);
+                            var v0 = Number(document.getElementById("V0").value);
+                            var vk = Number(document.getElementById("Vk").value);
+                            var a = Number(document.getElementById("a").value);
+                            var t = Number(document.getElementById("t").value);
+
                             y = v0 * s * vk* t * a
                             if (y != 0) {
                                 result = 'Все данные известны.'
@@ -233,7 +245,7 @@
                                 solve2 = ' '
                                 solve3 = ' '
                             }
-                            if (s = 0) {
+                            if (s == 0) {
                                 q = vk - a * t
                                 result = q
 
@@ -243,7 +255,7 @@
                                 solve3 = 'Теперь остается только подставить значения и посчитать.'
                             }
 
-                            if (a = 0) {
+                            if (a == 0) {
                                 q = 2 * s / t
                                 result = q - vk
 
@@ -253,7 +265,7 @@
                                 solve3 = 'Теперь остается только подставить значения и посчитать.'
                             }
 
-                            if (t = 0) {
+                            if (t == 0) {
                                 q = 2 * a * s
                                 vk2 = vk ** 2
                                 qvk = q - vk2
@@ -266,7 +278,7 @@
                                 solve3 = 'Теперь остается только подставить значения и посчитать.'
                             }
 
-                            if (vk = 0) {
+                            if (vk == 0) {
                                 q = 2 * s + a * t ** 2
                                 result = q / 2 * t
 
@@ -283,7 +295,20 @@
                         }
 
                         function velocity_end() {
-                            if (s = 0) {
+
+                            var result;
+                            var solve; 
+                            var solve1;
+                            var solve2;
+                            var solve3;
+
+                            var s = Number(document.getElementById("S").value);
+                            var v0 = Number(document.getElementById("V0").value);
+                            var vk = Number(document.getElementById("Vk").value);
+                            var a = Number(document.getElementById("a").value);
+                            var t = Number(document.getElementById("t").value);
+
+                            if (s == 0) {
                                 q = v0 + a * t
                                 result = q
 
@@ -293,7 +318,7 @@
                                 solve3 = 'Теперь остается только подставить значения и посчитать.'
                             }
 
-                            if (a = 0) {
+                            if (a == 0) {
                                 q = 2 * s / t
                                 result = q - v0
 
@@ -303,7 +328,7 @@
                                 solve3 = 'Теперь остается только подставить значения и посчитать.'
                             }
 
-                            if (t = 0) {
+                            if (t == 0) {
                                 q = 2 * a * s + v0 ** 2
                                 i = 1/2
                                 result = q ** i 
@@ -314,7 +339,7 @@
                                 solve3 = 'Теперь остается только подставить значения и посчитать.'
                             }
 
-                            if (v0 = 0) {
+                            if (v0 == 0) {
                                 q = 2 * s - a * t ** 2
                                 result = q / 2 * t
 
@@ -331,6 +356,19 @@
                         }
 
                         function square() {
+
+                            var result;
+                            var solve; 
+                            var solve1;
+                            var solve2;
+                            var solve3;
+
+                            var s = Number(document.getElementById("S").value);
+                            var v0 = Number(document.getElementById("V0").value);
+                            var vk = Number(document.getElementById("Vk").value);
+                            var a = Number(document.getElementById("a").value);
+                            var t = Number(document.getElementById("t").value);
+
                             y = v0 * s * vk* t * a
                             if (y != 0) {
                                 result = 'Все данные известны.'
@@ -339,7 +377,7 @@
                                 solve2 = ' '
                                 solve3 = ' '
                             }
-                            if (a = 0) {
+                            if (a == 0) {
                                 q = vk * v0
                                 result = q * t / 2
 
@@ -349,7 +387,7 @@
                                 solve3 = ' '
                             }
 
-                            if (t = 0){
+                            if (t == 0){
                                 q = vk ** 2 - v0 ** 2
                                 w = q / 2 * a
 
@@ -359,7 +397,7 @@
                                 solve3 = ' '
                             }
 
-                            if (v0 = 0) {
+                            if (v0 == 0) {
                                 q = v0 * t
                                 w = a * t ** 2
                                 result = q - w/2
@@ -370,7 +408,7 @@
                                 solve3 = ' '
                             }
 
-                            if (vk = 0) {
+                            if (vk == 0) {
                                 q = vk * t
                                 w = a * t ** 2
                                 result = q + w/2
