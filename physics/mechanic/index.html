@@ -22,7 +22,8 @@
                     Равноускоренное движение
                 </h2>
 
-                <input id="S"
+                <div>
+                    <input id="S"
                     placeholder="   Расстояние"
                     style = "background-color:white;
                     border: solid 1px #6E6E6E;
@@ -71,13 +72,15 @@
                     font-size:12px;
                     vertical-align:9px;
                     color:rgb(75, 72, 72)">
+                </div>
 
-
-                <button class = "operator" onclick="square()">Расстояние</button>
-                <button class = "operator" onclick="velocity()">V нулевое</button>
-                <button class = "operator" onclick="velocity_end()">V конечное</buttin>
-                <button class = "operator" onclick="acceleration()">Ускорение</button>
-                <button class = "operator" onclick="time()">Время</button>
+                <div>
+                    <button class = "operator" onclick="square()">Расстояние</button>
+                    <button class = "operator" onclick="velocity()">V нулевое</button>
+                    <button class = "operator" onclick="velocity_end()">V конечное</buttin>
+                    <button class = "operator" onclick="acceleration()">Ускорение</button>
+                    <button class = "operator" onclick="time()">Время</button>
+                </div>
 
                 <p class = "res" id="result"></p>
                 <p class = "solving" id = "solve"></p>
@@ -425,9 +428,39 @@
                             document.getElementById("solve3").innerHTML = solve3;
                         }
                         
-                        
-
                 </script>
+            </article>
+
+            <article>
+                <h2>
+                    Как пользоваться калькулятором
+                </h2>
+
+                <p>
+                    Этот калькулятор уже несколько сложнее:
+                    <ul class="algmech">
+                        <li id="algmech">
+                            1. Для начала введите все известные данные(те значения, которые надоо найти, обозначьте нулем);
+                        </li>
+                        <li id="algmech">
+                            2. Далее нажмите на кнопку той переменной, которую вам необходимо найти. После этого калькулятор посчитает значение и выведет вам решение.
+                        </li>
+                        <li id="algmech">
+                            *В том случае, если вместо ответа выводится какое-либо буквенное значение, то проверьте правильность введенных данных.
+                        </li>
+                    </ul>
+                </p>
+            </article>
+
+            <article>
+                <h2>
+                    Содержание раздела
+                </h2>
+
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;В данном разделе вы можете не только решить задачи, но и ознакомиться с теоретическими материалама, а по некоторым темам даже
+                    присутствуют задачи, для отработки знаний на практике.
+                </p>
             </article>
         </main>
     </body>
