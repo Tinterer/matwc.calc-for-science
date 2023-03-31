@@ -1,0 +1,96 @@
+html {
+    background: rgb(35, 38, 38);
+    font-size: 20px;
+}
+
+#footer {
+    color: aliceblue;
+}
+
+h1 {
+    color: rgb(255, 244, 229);
+    font: bold;
+}
+
+h2 {
+    color: rgb(240, 225, 205);
+    font: bold;
+}
+
+h3 {
+    color: rgb(255, 228, 194);
+    font: bold;
+}
+
+p {
+    color:rgb(255, 249, 237);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+a {
+    color:rgb(155, 202, 243);
+}
+
+body {
+    margin: 0;
+}
+
+#footer {
+    position: static;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    background: rgb(36, 34, 34);
+}
+
+#ulhornavbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(67, 65, 61);
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+
+/* ulhornavbar будет айди для списка ul в горизонтальном навбаре*/
+
+#lihornavbar {
+    float: left;
+}
+
+#lihornavbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+#lihornavbar a:hover {
+    color: darkslategray;
+    background-color: #f3c165;
+}
+
+.active {
+    color: darkslategray;
+    background-color: #eec476;
+}
+
+.operator {
+    height: 30px;
+    width: 30px;
+}
+
+.res {
+    color: rgb(225, 245, 223)
+}   
+
+.algmath {
+    color: rgb(210, 206, 149);
+}
+
+.listmaths {
+    color: rgb(240, 255, 250);
+}

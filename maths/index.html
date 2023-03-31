@@ -1,0 +1,147 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <meta charset="utf-8">
+        <meta name="author" content="Матвей Теслов">
+        <meta name="description" content="Раздел математики">
+    </head>
+    <body>
+
+        <ul id='ulhornavbar'><span>
+            <li id="lihornavbar"><a href="../index.html" title="Главная страница">Главная</a></li>
+            <li id="lihornavbar" class="active"><a href="maths/index.html" title="Раздел математики">Математика</a></li>
+            <li id="lihornavbar"><a href="../physics/index.html" title="Раздел физики">Физика</a></li>
+        </ul></span>
+
+        <main>
+
+            <article>
+
+                <h2>
+                    Калькулятор
+                </h2>
+
+                <input id="num1" 
+                    placeholder="first number"
+                    style="background-color:white; 
+                    border: solid 1px #6E6E6E;
+                    height: 30px; 
+                    font-size:18px; 
+                    vertical-align:9px;color:rgb(75, 72, 72)"/>
+
+                <div id="operator_btns">
+                    <button id = "plus" class="operator" onclick="op='+'">+</button>
+                    <button id = "minus" class="operator" onclick="op='-'">-</button>
+                    <button id = "times" class="operator" onclick="op='*'">x</button>
+                    <button id = "divide" class="operator" onclick="op='/'">:</button>
+                    <button id = "square" class = "operator" onclick = "op = '^'">xⁱ</button>
+                    <button id = "root" class = "operator" onclick = "op = '✓'">✓</button>
+                </div>
+
+                <input placeholder="second number/extent " 
+                id="num2"
+                style="background-color:white; 
+                border: solid 1px #6E6E6E;
+                height: 30px; 
+                font-size:18px; 
+                vertical-align:9px;color:rgb(75, 72, 72)"/>
+
+                <button onclick="func()">count</button>
+
+                <p class = "res" id="result">
+                    <a href=""></a>
+                </p>
+
+
+                <script>
+                var op; //выбранный оператор
+                function func() {
+                    var result;
+                    var num1 = Number(document.getElementById("num1").value);
+                    var num2 = Number(document.getElementById("num2").value);
+                    switch (op) {
+                    case '+':
+                        result = num1 + num2;
+                        break;
+
+                    case '-':
+                        result = num1 - num2;
+                        break;
+
+                    case '*':
+                        result = num1 * num2;
+                        break;
+
+                    case '/':
+                        if (num2) {
+                        result = num1 / num2;
+                        } else {
+                        result = 'бесконечность';
+                        }
+                        break;
+
+                    case '^':
+                        result = num1 ** num2;
+                        break;
+
+                    case '✓':
+                        i = 1 / num2;
+                        result = num1 ** i;
+                        break;  
+
+                    default:
+                        result = 'выберите операцию';
+                    }
+
+                    document.getElementById("result").innerHTML = result;
+                }
+                </script>
+            </article>
+
+            <article>
+                <h2>
+                    Как пользоваться калькуляторoм
+                </h2>
+
+                <p>
+                    Алгоритм использования довольно прост:
+                    <ul class="algmath">
+                        <li id="algmath">
+                            <p>1. В случае, если вам необхоодимо сложить/вычесть/умножить/поделить числа, 
+                            то в первую и вторую графу вводите необходимые значения;</p>
+                        </li>
+                        <li id="algmath">
+                            <p>2. В случае, если вам необхоимо вычислить корень или возвести число в какую-то степень, 
+                            то в первую графу вводите само число, а во вторую степень или же степень корня (если корень обычный, то вводите 2).</p>
+                        </li>
+                    </ul>
+                </p>
+            </article>
+            
+            <article>
+                <h2>
+                    Содержание раздела
+                </h2>
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;В данном разделе помимо калькулятора также представлены конспекты с объяснением тем.
+                    То есть вы можете не только быстро посчитать необходимые числа, а также подтянуть западающие темы и закрепить знания на тренажерах.
+                </p>
+
+                <p>
+                    Так например в данный момент вы можете уже ознакомиться с материалами по таким темам, как:
+                </p>
+                <ul class="listmaths">
+                    <li><a href="" id="extent" title="Тык" target="_blank">Возведение в степень</a></li>
+                    <li><a href="" id="root" title="Тык" target="_blank">Вычисление корней различной степени</a></li>
+                    <li><a href="" id="justmaths" title="Тык" target="Тык">Практикум по алгебре повышенной сложности</a></li>
+                </ul>
+            </article>
+
+        </main>
+
+        <div id="footer">
+            Калькулятор Матвея 1.4 самый лучший в мире[]~(￣▽￣)~*
+        </div>
+
+    </body>
+</html>
