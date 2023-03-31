@@ -141,48 +141,4 @@ if n1 == 'вычисления по формулам':
                         v02 = velocity ** 2
                         s2 = 2 * square
                         z = -velocity + v02 + s2
-                        print(z / acceler)
-
-                        
-
-<html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <meta charset="utf-8">
-        <meta name="author" content="Матвей Теслов">
-        <meta name="description" content="Калькулятор Матвея">
-        <title>clc.m2</title>
-    </head>
-    <body>
-
-        <header>
-            <h1>calculatorm</h1>
-        </header>
-
-        <ul id='ulhornavbar'><span>
-            <li id="lihornavbar" class="active"><a href="index.html" title="Главная страница">Главная</a></li>
-            <li id="lihornavbar"><a href="maths/index.html" title="Раздел математики">Математика</a></li>
-            <li id="lihornavbar"><a href="physics/index.html" title="Раздел физики">Физика</a></li>
-            <li id="lihornavbar"><a href="utilits/index.html" title="Раздел Польши">Другое</a></li>
-        </ul></span>
-
-        <main>
-            <article>
-                <header id="lastnews">
-                    <h3>
-                        Последние новости о калькуляторе CLC m2
-                    </h3>
-                </header>
-                <p>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                </p>
-            </article>
-
-        </main>
-
-        <div id="footer">
-            clc.m2.v2.1
-        </div>
-
-    </body>
-</html>                        
+                        print(z / acceler)                      
