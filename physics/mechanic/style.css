@@ -1,5 +1,5 @@
 html {
-    background: rgb(35, 38, 38);
+    background: black;
     font-size: 20px;
 }
 
@@ -48,7 +48,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(67, 65, 61);
+    background-color: rgb(36, 34, 34);
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;

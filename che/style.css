@@ -2,19 +2,16 @@ html {
     background-color: black;
 }
 
-.earth_gif {
-    transform: scale(1.25, 1.25) translate(-300px, -50px);
-}
-
 .logo {
     color: whitesmoke;
-    transform: translate(290px, 220px)
+    transform: translate(295px, 220px);
+    font-size: 50px;
 
 }
 
 .login {
     color: black;
-    transform: translate(995px, 220px);
+    transform: translate(1000px, 220px);
     height: 40px;
     width: 100px;
     font-size: 20px;

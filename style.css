@@ -48,7 +48,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(67, 65, 61);
+    background-color: rgb(29, 29, 29);
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
@@ -57,7 +57,7 @@ body {
 /* ulhornavbar будет айди для списка ul в горизонтальном навбаре*/
 
 #lihornavbar {
-    float: left;
+    float:left;
 }
 
 #lihornavbar a {
@@ -69,11 +69,11 @@ body {
 }
 
 #lihornavbar a:hover {
-    color: darkslategray;
-    background-color: #f3c165;
+    color: rgb(79, 64, 40);
+    background-color: #f7b335;
 }
 
 .active {
-    color: darkslategray;
-    background-color: #eec476;
+    color: rgb(29, 29, 29);
+    background-color: #bc8b30af;
 }
