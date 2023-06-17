@@ -23,7 +23,7 @@
                 </h2>
 
                 <div>
-                    <input id="S"
+                    <input id="square"
                     placeholder="   Расстояние"
                     style = "background-color:white;
                     border: solid 1px #6E6E6E;
@@ -33,7 +33,7 @@
                     vertical-align:9px;
                     color:rgb(75, 72, 72)"/>
 
-                <input id="V0"
+                <input id="vel_0"
                     placeholder="    V нулевое"
                     style="background-color:white;
                     border: solid 1px #6E6E6E;
@@ -43,7 +43,7 @@
                     vertical-align:9px;
                     color:rgb(75, 72, 72)"/>
                     
-                <input id="Vk"
+                <input id="vel_k"
                     placeholder="   V конечное"
                     style="background-color:white;
                     border: solid 1px #6E6E6E;
@@ -53,7 +53,7 @@
                     vertical-align:9px;
                     color:rgb(75, 72, 72)"/>
                     
-                <input id="a"
+                <input id="acceler"
                     placeholder="    Ускорение"
                     style="background-color:white;
                     border: solid 1px #6E6E6E;
@@ -63,7 +63,7 @@
                     vertical-align:9px;
                     color:rgb(75, 72, 72)"/>
 
-                <input id="t"
+                <input id="time"
                     placeholder="       Время"
                     style="background-color:white;
                     border: solid 1px #6E6E6E;
@@ -75,11 +75,11 @@
                 </div>
 
                 <div>
-                    <button class = "operator" onclick="square()">Расстояние</button>
-                    <button class = "operator" onclick="velocity()">V нулевое</button>
-                    <button class = "operator" onclick="velocity_end()">V конечное</buttin>
-                    <button class = "operator" onclick="acceleration()">Ускорение</button>
-                    <button class = "operator" onclick="time()">Время</button>
+                    <button class = "operator" onclick="Square()">Расстояние</button>
+                    <button class = "operator" onclick="Vel()">V нулевое</button>
+                    <button class = "operator" onclick="Vel_end()">V конечное</buttin>
+                    <button class = "operator" onclick="Acceler()">Ускорение</button>
+                    <button class = "operator" onclick="Time()">Время</button>
                 </div>
 
                 <p class = "res" id="result"></p>
@@ -90,343 +90,82 @@
 
                 <script>
                         
+                    function Square() {
+                        var Result;
+                        var Solve;
+                        var Solve_1;
+                        var Solve_2;
+                        var Solve_3;
+                        var Solve_4;
                         
-                        function acceleration() {
+                        var s = Number(document.getElementById("square").value);
+                        var v0 = Number(document.getElementById("vel_0").value);
+                        var vk = Number(document.getElementById("vel_k").value);
+                        var a = Number(document.getElementById("acceler").value);
+                        var t = Number(document.getElementById("time").value);
 
-                            var result;
-                            var solve; 
-                            var solve1;
-                            var solve2;
-                            var solve3;
+                        x = v0 * vk * s * a * t
 
-                            var s = Number(document.getElementById("S").value);
-                            var v0 = Number(document.getElementById("V0").value);
-                            var vk = Number(document.getElementById("Vk").value);
-                            var a = Number(document.getElementById("a").value);
-                            var t = Number(document.getElementById("t").value);
+                        if (x != 0) {
+                            Result = 'Все данные известны.';
+                            Solve = ' ';
+                            Solve_1 = ' ';
+                            Solve_2 = ' ';
+                            Solve_3 = ' ';
+                            Solve_4 = ' ';
+                        }
+                        else {
+                            if (vk == 0) {
+                                if (a != 0 && t != 0) {
+                                    s = v0 * t + (a * t**2)/2
 
-                            y = v0 * s * vk* t * a
-                            if (y != 0) {
-                                result = 'Все данные известны.';
-                                solve = ' ';
-                                solve1 = ' ';
-                                solve2 = ' ';
-                                solve3 = ' ';
-                            } else if(s == 0) {
-                                q = vk - v0;
-                                result = q / t;
+                                    Result = s;
+                                    Solve = `${a}`;
 
-                                solve = 'В данной ситуации следует воспользоваться формулой нахождения конечной скорости:';
-                                solve1 = 'Vк = V₀ + a•t';
-                                solve2 = '⇒ a = (Vк - V₀)/t';
-                                solve3 = 'Теперь остается только подставить значения и посчитать.';
-                            } else if (t == 0) {
-                                q = (vk ** 2) - (v0 ** 2);
-                                result = q / (2 * s);
-
-                                solve = 'В данном случае воспользуемся формулой нахождения перемещения без времени:';
-                                solve1 = 'S = (Vк² - V₀²)/2•a';
-                                solve2 = 'a = (Vк² - V₀²)/2•S';
-                                solve3 = 'Теперь остается только подставить значения и посчитать.';
-                            } else if (vk == 0) {
-                                q = (2 * v0 * t) - 2 * s;
-                                result = q / t ** 2;
-
-                                solve = 'В данном случае воспользуемся формулой нахождения перемещения с помощью начальной скорости, ускорения и времени:';
-                                solve1 = '  S = V₀•t - a•t²/2';
-                                solve2 = '  a = (2•V₀•t - 2•S)/t²';
-                                solve3 = 'Теперь остается только подставить значения и посчитать.';
+                                }
+                                else{
+                                    Result = 'Недостаточно данных'
+                                }
                             } else if (v0 == 0) {
-                                q = 2 * s - 2 * vk * t;
-                                result = q / t ** 2;
+                                if (a != 0 && t != 0) {
+                                    s = vk * t - (a * t**2)/2
 
-                                solve = 'В данном случае воспользуемся формулой нахождения перемещения с использованием конечной скорости, ускорения и времени:';
-                                solve1 = '  S = Vк•t + a•t²/2';
-                                solve2 = '  a = (2•S - 2•Vк•t)/t²';
-                                solve3 = 'Теперь остается только подставить значения и посчитать.';
+                                    Result = s;
+                                    Solve = 'Успешно';
+                                }
+                                else {
+                                    Result = 'Недостаточно данных'
+                                }
+                            } else if (t == 0) {
+                                if (a != 0)  {
+                                    s = (vk**2 - v0**2)/(2 * a)
+
+                                    Result = s;
+                                    Solve = 'Успешно'
+                                } 
+                                else {
+                                    Result = 'Недостаточно данных'
+                                }
+                            } else if (a == 0) {
+                                if (t != 0) {
+                                    s = (v0 + vk) * t/2
+
+                                    Result = s;
+                                    Solve = 'Успешно';
+                                }
+                                else {
+                                    Result = 'Недостаточно данных'
+                                }
                             }
-                            document.getElementById("result").innerHTML = result;
-                            document.getElementById("solve").innerHTML = solve;
-                            document.getElementById("solve1").innerHTML = solve1;
-                            document.getElementById("solve2").innerHTML = solve2;
-                            document.getElementById("solve3").innerHTML = solve3;
                         }
 
-                        function time() {
-
-                            var result;
-                            var solve; 
-                            var solve1;
-                            var solve2;
-                            var solve3;
-
-                            var s = Number(document.getElementById("S").value);
-                            var v0 = Number(document.getElementById("V0").value);
-                            var vk = Number(document.getElementById("Vk").value);
-                            var a = Number(document.getElementById("a").value);
-                            var t = Number(document.getElementById("t").value);
-
-                            y = v0 * s * vk* t * a
-                            if (y != 0) {
-                                result = 'Все данные известны.';
-                                solve = ' ';
-                                solve1 = ' '
-                                solve2 = ' '
-                                solve3 = ' '
-                            }
-                            if (s == 0) {
-                                q = vk - v0
-                                result = q / a
-
-                                solve = 'В данном случае воспользуемся формулой нахождения конечной скорости:'
-                                solve1 = 'Vк = V0 - at'
-                                solve2 = 't = (Vk - V0)/a'
-                                solve3 = 'Теперь остается только подставить значения и посчитать.'
-                            }
-
-                            if (a == 0) {
-                                q = vk + v0
-                                result = 2 * s/q
-
-                                solve = 'В данном случае воспользуемся формулой перемещения с использованием конечной скорости, начальной скорости и времени'
-                                solve1 = 'S = t(Vk - V0)/2'
-                                solve2 = 't = 2S/(Vk + V0)'
-                                solve3 = 'Теперь остается только подставить значения и посчитать'
-                            }
-
-                            if (vk == 0) {
-                                q = v0 - 2 * a * s
-                                i = 1/2
-                                q12 = q ** i
-                                w = v0 - q12
-                                result = w / a
-
-                                solve = 'В данном случае воспользуемся формулой перемещения с использованием начальной скорости, ускорения и времени:'
-                                solve1 = 'S = V0t - at/2 ⇒ at - 2V0t + 2S = 0 ⇒ Решаем квадратное уравнение, так как время не может иметь отрицательную величину, то нам подходит только один корень.'
-                                solve2 = 't = (V0 - 2√(V02 - 2aS))/a'
-                                solve3 = 'Теперь остается только подставить значения и посчитать.'
-                            }
-
-                            if (v0 == 0) {
-                                q = vk + 2 * a * s
-                                i = 1/2
-                                q12 = q ** i
-                                w = q12 - vk
-                                result = w / a
-
-                                solve = 'В данном случае воспользуемся формулой перемещения с использованием конечной скорости, ускорения и времени:'
-                                solve1 = 'S = Vkt + at/2  at + 2Vkt - 2S = 0  Решаем квадратное уравнение, так как время не может иметь отрицательную величину, то нам подойдет только один корень:'
-                                solve2 = 't = (2√(Vk2 + 2aS) - Vk)/a'
-                                solve3 = 'Теперь остается только подставить значения и посчитать.'
-                            }
-                            document.getElementById("result").innerHTML = result;
-                            document.getElementById("solve").innerHTML = solve;
-                            document.getElementById("solve1").innerHTML = solve1;
-                            document.getElementById("solve2").innerHTML = solve2;
-                            document.getElementById("solve3").innerHTML = solve3;
-                        }
-
-                        function velocity() {
-
-                            var result;
-                            var solve; 
-                            var solve1;
-                            var solve2;
-                            var solve3;
-
-                            var s = Number(document.getElementById("S").value);
-                            var v0 = Number(document.getElementById("V0").value);
-                            var vk = Number(document.getElementById("Vk").value);
-                            var a = Number(document.getElementById("a").value);
-                            var t = Number(document.getElementById("t").value);
-
-                            y = v0 * s * vk* t * a
-                            if (y != 0) {
-                                result = 'Все данные известны.'
-                                solve = ' '
-                                solve1 = ' '
-                                solve2 = ' '
-                                solve3 = ' '
-                            }
-                            if (s == 0) {
-                                q = vk - a * t
-                                result = q
-
-                                solve = 'В данном случае воспользуемся формулой нахождения конечной скорости:'
-                                solve1 = 'Vk = V0 + at'
-                                solve2 = 'V0 = Vk - at'
-                                solve3 = 'Теперь остается только подставить значения и посчитать.'
-                            }
-
-                            if (a == 0) {
-                                q = 2 * s / t
-                                result = q - vk
-
-                                solve = 'В данном случае воспользуемся формулой перемещения с использованием конечной скорости, начальной скорости и времени:'
-                                solve1 = 'S = t * (Vk - V0)/2'
-                                solve2 = 'V0 = 2S/t - Vk'
-                                solve3 = 'Теперь остается только подставить значения и посчитать.'
-                            }
-
-                            if (t == 0) {
-                                q = 2 * a * s
-                                vk2 = vk ** 2
-                                qvk = q - vk2
-                                i = 1/2
-                                result = qvk ** i
-
-                                solve = 'В данном случае воспользуемся формулой перемещения с использованием конечной скорости, начальной скорости и ускорения:'
-                                solve1 = 'S = (Vк² - V₀²)/2•a'
-                                solve2 = 'V0 = √(2aS - Vk2)'
-                                solve3 = 'Теперь остается только подставить значения и посчитать.'
-                            }
-
-                            if (vk == 0) {
-                                q = 2 * s + a * t ** 2
-                                result = q / 2 * t
-
-                                solve = 'В данном случае воспользуемся формулой перемещения с использованием начальной скорости, ускорения и времени:'
-                                solve1 = 'S = V0t - at2/2'
-                                solve2 = '(V0 = 2S + at2)/2t'
-                                solve3 = 'Теперь остается только подставить значения и посчитать.'
-                            }
-                            document.getElementById("result").innerHTML = result;
-                            document.getElementById("solve").innerHTML = solve;
-                            document.getElementById("solve1").innerHTML = solve1;
-                            document.getElementById("solve2").innerHTML = solve2;
-                            document.getElementById("solve3").innerHTML = solve3;
-                        }
-
-                        function velocity_end() {
-
-                            var result;
-                            var solve; 
-                            var solve1;
-                            var solve2;
-                            var solve3;
-
-                            var s = Number(document.getElementById("S").value);
-                            var v0 = Number(document.getElementById("V0").value);
-                            var vk = Number(document.getElementById("Vk").value);
-                            var a = Number(document.getElementById("a").value);
-                            var t = Number(document.getElementById("t").value);
-
-                            if (s == 0) {
-                                q = v0 + a * t
-                                result = q
-
-                                solve = 'В данном случае воспользуемся формулой нахождениия конечной скорости:'
-                                solve1 = 'Vk = V0 + at'
-                                solve2 = ''
-                                solve3 = 'Теперь остается только подставить значения и посчитать.'
-                            }
-
-                            if (a == 0) {
-                                q = 2 * s / t
-                                result = q - v0
-
-                                solve = 'В данном случае воспользуемся формулой нахождения переммещения с использованием конечной скорости, начальной скорости и времени:'
-                                solve1 = 'S = t(Vk + V0)/2'
-                                solve2 = 'Vk = 2S/t - V0'
-                                solve3 = 'Теперь остается только подставить значения и посчитать.'
-                            }
-
-                            if (t == 0) {
-                                q = 2 * a * s + v0 ** 2
-                                i = 1/2
-                                result = q ** i 
-
-                                solve = 'в данном случае воспользуемся формулой нахождения перемещения с использованием конечной скорости, начальной скорости и ускорения'
-                                solve1 = 'S = (Vк² - V₀²)/2•a'
-                                solve2 = 'Vk = √(2aS + V02)'
-                                solve3 = 'Теперь остается только подставить значения и посчитать.'
-                            }
-
-                            if (v0 == 0) {
-                                q = 2 * s - a * t ** 2
-                                result = q / 2 * t
-
-                                solve = 'В данном случае вопспользуемся формулой нахождения перемещения с использованием конечой скорости, ускорения и времени:'
-                                solve1 = 'S = Vkt + at2/2'
-                                solve2 = 'Vk = (2S - at2)/2t'
-                                solve3 = 'Теперь остается только подставить значения и посчитать.'
-                            }
-                            document.getElementById("result").innerHTML = result;
-                            document.getElementById("solve").innerHTML = solve;
-                            document.getElementById("solve1").innerHTML = solve1;
-                            document.getElementById("solve2").innerHTML = solve2;
-                            document.getElementById("solve3").innerHTML = solve3;
-                        }
-
-                        function square() {
-
-                            var result;
-                            var solve; 
-                            var solve1;
-                            var solve2;
-                            var solve3;
-
-                            var s = Number(document.getElementById("S").value);
-                            var v0 = Number(document.getElementById("V0").value);
-                            var vk = Number(document.getElementById("Vk").value);
-                            var a = Number(document.getElementById("a").value);
-                            var t = Number(document.getElementById("t").value);
-
-                            y = v0 * s * vk* t * a
-                            if (y != 0) {
-                                result = 'Все данные известны.'
-                                solve = ' '
-                                solve1 = ' '
-                                solve2 = ' '
-                                solve3 = ' '
-                            }
-                            if (a == 0) {
-                                q = vk * v0
-                                result = q * t / 2
-
-                                solve = 'В данном случае воспользуемся формулой нахождения перемещения с использованием конечной скорости, начальной скорости и времмени:'
-                                solve1 = 'S = t(Vk + V0)/2'
-                                solve2 = 'Тепперь остается только подставить значения и посчитать.'
-                                solve3 = ' '
-                            }
-
-                            if (t == 0){
-                                q = vk ** 2 - v0 ** 2
-                                w = q / 2 * a
-
-                                solve = 'В данном случае воспользуемся формулой нахождения перемещения с использованием конечной скорости, начальной скорости и ускорения'
-                                solve1 = 'S = (Vk2 - V02)/2a'
-                                solve2 = 'Теперь остается только подставить значения и посчитать'
-                                solve3 = ' '
-                            }
-
-                            if (v0 == 0) {
-                                q = v0 * t
-                                w = a * t ** 2
-                                result = q - w/2
-
-                                solve = 'В данном случае воспользуемся формулой нахождения перемещения с использоваением начальной скорости, времени и ускорения:'
-                                solve1 = 'S = V0t - at2/2'
-                                solve2 = 'Теперь остается только подставить значения и посчитать.'
-                                solve3 = ' '
-                            }
-
-                            if (vk == 0) {
-                                q = vk * t
-                                w = a * t ** 2
-                                result = q + w/2
-
-                                solve = 'В данном случае вооспользуемся формулой нахождения перемещения с использованием конечной скорости, времени и ускорения:'
-                                solve1 = 'S = Vkt + at2/2'
-                                solve2 = 'Теперь остается только подставить значения и посчитать.'
-                                solve3 = ''
-                            }
-                            document.getElementById("result").innerHTML = result;
-                            document.getElementById("solve").innerHTML = solve;
-                            document.getElementById("solve1").innerHTML = solve1;
-                            document.getElementById("solve2").innerHTML = solve2;
-                            document.getElementById("solve3").innerHTML = solve3;
-                        }
+                        document.getElementById("result").innerHTML = Result;
+                        document.getElementById("solve").innerHTML = Solve;
+                        document.getElementById("Solve_1").innerHTML = Solve_1;
+                        document.getElementById("Solve_2").innerHTML = Solve_2;
+                        document.getElementById("Solve_3").innerHTML = Solve_3;
+                        document.getElementById("Solve_4").innerHTML = Solve_4;
+                    }
                         
                 </script>
             </article>
