@@ -7,21 +7,23 @@
     </head>
     <body>
 
-        <ul id='ulhornavbar'><span>
-            <li id="lihornavbar"><a href="../index.html" title="Главная страница">Главная</a></li>
-            <li id="lihornavbar" class="active"><a href="maths/index.html" title="Раздел математики">Математика</a></li>
-            <li id="lihornavbar"><a href="../physics/index.html" title="Раздел физики">Физика</a></li>
-        </ul></span>
+        <div>
+            <ul id='ulhornavbar'><span>
+                <li id="lihornavbar" style="transform: translateX(480px); font: bolder; font-size: 23px;"><a href="../che/index.html" title="Главная страница">Главная</a></li>
+                <li id="lihornavbar" class="active" style="transform: translateX(480px); font: bolder; font-size: 23px;"><a href="index.html" title="Раздел математики">Математика</a></li>
+                <li id="lihornavbar" style="transform: translateX(480px); font-size: 23px;"><a href="../physics/index.html" title="Раздел физики">Физика</a></li>
+            </ul></span>
+        </div>
 
         <main>
 
             <article>
 
-                <h2>
+                <h2 align="center">
                     Калькулятор
                 </h2>
 
-                <input id="num1" 
+                <input id="num1" class="calcus" 
                     placeholder="first number"
                     style="background-color:white; 
                     border: solid 1px #6E6E6E;
@@ -29,16 +31,16 @@
                     font-size:18px; 
                     vertical-align:9px;color:rgb(75, 72, 72)"/>
 
-                <div id="operator_btns">
+                <div id="operator_btns" align="center" style="transform: translateY(5px);">
                     <button id = "plus" class="operator" onclick="op='+'">+</button>
                     <button id = "minus" class="operator" onclick="op='-'">-</button>
                     <button id = "times" class="operator" onclick="op='*'">x</button>
                     <button id = "divide" class="operator" onclick="op='/'">:</button>
                     <button id = "square" class = "operator" onclick = "op = '^'">xⁱ</button>
-                    <button id = "root" class = "operator" onclick = "op = '✓'">✓</button>
+                    <button id = "root" class = "operator" onclick = "op = '✓'">√</button>
                 </div>
 
-                <input placeholder="second number/extent " 
+                <input placeholder="second number/extent " class="calcus1" 
                         id="num2"
                         style="background-color:white; 
                         border: solid 1px #6E6E6E;
@@ -46,66 +48,66 @@
                         font-size:18px; 
                         vertical-align:9px;color:rgb(75, 72, 72)"/>
 
-                <button onclick="func()">count</button>
+                <button onclick="func()" class="count">count</button>
 
-                <p class = "res" id="result">
+                <p class = "res" id="result" align="center">
                     <a href=""></a>
                 </p>
 
 
                 <script>
-                var op; //выбранный оператор
-                function func() {
-                    var result;
-                    var num1 = Number(document.getElementById("num1").value);
-                    var num2 = Number(document.getElementById("num2").value);
-                    switch (op) {
-                    case '+':
-                        result = num1 + num2;
-                        break;
+                    var op; //выбранный оператор
+                    function func() {
+                        var result;
+                        var num1 = Number(document.getElementById("num1").value);
+                        var num2 = Number(document.getElementById("num2").value);
+                        switch (op) {
+                        case '+':
+                            result = num1 + num2;
+                            break;
 
-                    case '-':
-                        result = num1 - num2;
-                        break;
+                        case '-':
+                            result = num1 - num2;
+                            break;
 
-                    case '*':
-                        result = num1 * num2;
-                        break;
+                        case '*':
+                            result = num1 * num2;
+                            break;
 
-                    case '/':
-                        if (num2) {
-                        result = num1 / num2;
-                        } else {
-                        result = 'бесконечность';
+                        case '/':
+                            if (num2) {
+                            result = num1 / num2;
+                            } else {
+                            result = 'бесконечность';
+                            }
+                            break;
+
+                        case '^':
+                            result = num1 ** num2;
+                            break;
+
+                        case '✓':
+                            i = 1 / num2;
+                            result = num1 ** i;
+                            break;  
+
+                        default:
+                            result = 'выберите операцию';
                         }
-                        break;
 
-                    case '^':
-                        result = num1 ** num2;
-                        break;
-
-                    case '✓':
-                        i = 1 / num2;
-                        result = num1 ** i;
-                        break;  
-
-                    default:
-                        result = 'выберите операцию';
+                        document.getElementById("result").innerHTML = result;
                     }
-
-                    document.getElementById("result").innerHTML = result;
-                }
                 </script>
             </article>
 
             <article>
-                <h2>
+                <h2 align = 'center'>
                     Как пользоваться калькуляторoм
                 </h2>
 
-                <p>
-                    Алгоритм использования довольно прост:
-                    <ul class="algmath">
+                <p style="font-size: 20px; font: bolder;">
+                    <b>Алгоритм использования довольно прост:</b>
+                    <ul class="algmath" style="transform: translateX(50px);">
                         <li id="algmath">
                             <p>1. В случае, если вам необхоодимо сложить/вычесть/умножить/поделить числа, 
                             то в первую и вторую графу вводите необходимые значения;</p>
@@ -119,7 +121,7 @@
             </article>
             
             <article>
-                <h2>
+                <h2 align = 'center'>
                     Содержание раздела
                 </h2>
                 <p>
@@ -130,18 +132,15 @@
                 <p>
                     Так например в данный момент вы можете уже ознакомиться с материалами по таким темам, как:
                 </p>
-                <ul class="listmaths">
-                    <li><a href="" id="extent" title="Тык" target="_blank">Возведение в степень</a></li>
-                    <li><a href="" id="root" title="Тык" target="_blank">Вычисление корней различной степени</a></li>
-                    <li><a href="" id="justmaths" title="Тык" target="Тык">Практикум по алгебре повышенной сложности</a></li>
-                </ul>
+                <div style="transform: translateX(50px);">
+                    <ul class="listmaths">
+                        <li><a href="" id="extent" title="Тык" target="_blank">Возведение в степень</a></li>
+                        <li><a href="" id="root" title="Тык" target="_blank">Вычисление корней различной степени</a></li>
+                        <li><a href="" id="justmaths" title="Тык" target="Тык">Практикум по алгебре повышенной сложности</a></li>
+                    </ul>
+                </div>
             </article>
 
         </main>
-
-        <div id="footer">
-            Калькулятор Матвея 1.4 самый лучший в мире[]~(￣▽￣)~*
-        </div>
-
     </body>
 </html>
