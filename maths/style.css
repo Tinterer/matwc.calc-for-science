@@ -14,15 +14,35 @@ h1 {
 }
 
 .calcus {
-    transform: translateX(527px);   
+    /*transform: translateX(531px);*/ 
+    border-radius: 10px;  
+}
+
+.calcus:hover {
+    border: 5px;
+    border-color: rgb(73, 80, 80);
 }
 
 .calcus1 {
-    transform: translate(767px, -60px);
+    /*transform: translate(780px, -60px);*/
+    border-radius: 10px;
 }
 
 .count {
-    transform: translateX(510px);
+    /*transform: translateX(510px);*/
+    border-radius: 10px;
+    height: 30px;
+    width: 60px;
+    background-color: white;
+    color: black;
+    font-size: 17px;
+}
+
+.count:hover {
+    border: 5px;
+    border-color: aquamarine;
+    background-color: cadetblue;
+    color: rgb(191, 212, 212);
 }
 
 h2 {
@@ -59,19 +79,21 @@ body {
 
 #ulhornavbar {
     list-style-type: none;
-    margin: 0;
+    margin: auto;
     padding: 0;
     overflow: hidden;
     background-color: rgb(29, 29, 29);
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
+    /*position: -webkit-sticky;  Safari 
+    position: sticky;*/
     top: 0;
 }
 
 /* ulhornavbar будет айди для списка ul в горизонтальном навбаре*/
 
 #lihornavbar {
-    float: left;
+    margin: auto;
+    display: inline-block;
+
 }
 
 #lihornavbar a {
@@ -80,21 +102,38 @@ body {
     text-align: center;
     padding: 7px 45px;
     text-decoration: none;
+    border-radius: 15px;
+}
+#lihornavbar {
+    border-radius: 15px;
+}
+
+#lihornavbar:hover {
+    width: 220px;
 }
 
 #lihornavbar a:hover {
-    color: rgb(79, 64, 40);
+    color: rgb(68, 58, 41);
     background-color: #f7b335;
+    border-radius: 15px;
 }
 
 .active {
     color: rgb(29, 29, 29);
     background-color: #bc8b30af;
+    border-radius: 15px;
 }
 
 .operator {
     height: 30px;
     width: 30px;
+    border-radius: 5px;
+}
+
+.operator:hover {
+    background-color: rgb(118, 141, 142);
+    border-color: antiquewhite;
+    color: rgb(191, 212, 212);
 }
 
 .res {

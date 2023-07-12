@@ -7,11 +7,11 @@
     </head>
     <body>
 
-        <div>
+        <div align = 'center'>
             <ul id='ulhornavbar'><span>
-                <li id="lihornavbar" style="transform: translateX(480px); font: bolder; font-size: 23px;"><a href="../che/index.html" title="Главная страница">Главная</a></li>
-                <li id="lihornavbar" class="active" style="transform: translateX(480px); font: bolder; font-size: 23px;"><a href="index.html" title="Раздел математики">Математика</a></li>
-                <li id="lihornavbar" style="transform: translateX(480px); font-size: 23px;"><a href="../physics/index.html" title="Раздел физики">Физика</a></li>
+                <li id="lihornavbar" style=" font: bolder; font-size: 23px;"><a href="../che/index.html" title="Главная страница">Главная</a></li>
+                <li id="lihornavbar" class="active" style=" font: bolder; font-size: 23px;"><a href="index.html" title="Раздел математики">Математика</a></li>
+                <li id="lihornavbar" style=" font-size: 23px;"><a href="../physics/index.html" title="Раздел физики">Физика</a></li>
             </ul></span>
         </div>
 
@@ -23,13 +23,23 @@
                     Калькулятор
                 </h2>
 
-                <input id="num1" class="calcus" 
-                    placeholder="first number"
-                    style="background-color:white; 
-                    border: solid 1px #6E6E6E;
-                    height: 30px; 
-                    font-size:18px; 
-                    vertical-align:9px;color:rgb(75, 72, 72)"/>
+                <div class="inputs" align = 'center'>
+                    <input id="num1" class="calcus" 
+                        placeholder="first number"
+                        style="background-color:white; 
+                        border: solid 1px #6E6E6E;
+                        height: 30px; 
+                        font-size:18px; 
+                        vertical-align:9px;color:rgb(75, 72, 72)"/>
+
+                    <input placeholder="second number/extent " class="calcus1" 
+                            id="num2"
+                            style="background-color:white; 
+                            border: solid 1px #6E6E6E;
+                            height: 30px; 
+                            font-size:18px; 
+                            vertical-align:9px;color:rgb(75, 72, 72)"/>
+                </div>
 
                 <div id="operator_btns" align="center" style="transform: translateY(5px);">
                     <button id = "plus" class="operator" onclick="op='+'">+</button>
@@ -40,15 +50,11 @@
                     <button id = "root" class = "operator" onclick = "op = '✓'">√</button>
                 </div>
 
-                <input placeholder="second number/extent " class="calcus1" 
-                        id="num2"
-                        style="background-color:white; 
-                        border: solid 1px #6E6E6E;
-                        height: 30px; 
-                        font-size:18px; 
-                        vertical-align:9px;color:rgb(75, 72, 72)"/>
-
-                <button onclick="func()" class="count">count</button>
+                
+                <div align = 'center' style="transform: translateY(10px);">
+                    <button onclick="func()" class="count">count</button>
+                </div>
+                
 
                 <p class = "res" id="result" align="center">
                     <a href=""></a>
@@ -106,14 +112,14 @@
                 </h2>
 
                 <p style="font-size: 20px; font: bolder; transform: translateX(0px);"">
-                    <b >Алгоритм использования довольно прост:</b>
+                    <b >&nbsp;&nbsp;&nbsp;&nbsp;Алгоритм использования довольно прост:</b>
                     <ul class="algmath" style="transform: translateX(25px);">
                         <li id="algmath">
-                            <p>1. В случае, если вам необхоодимо сложить/вычесть/умножить/поделить числа, 
+                            <p><b>1.</b> В случае, если вам необхоодимо сложить/вычесть/умножить/поделить числа, 
                             то в первую и вторую графу вводите необходимые значения;</p>
                         </li>
                         <li id="algmath">
-                            <p>2. В случае, если вам необхоимо вычислить корень или возвести число в какую-то степень, 
+                            <p><b>2.</b> В случае, если вам необхоимо вычислить корень или возвести число в какую-то степень, 
                             то в первую графу вводите само число, а во вторую степень или же степень корня (если корень обычный, то вводите 2).</p>
                         </li>
                     </ul>
@@ -125,7 +131,7 @@
                     Содержание раздела
                 </h2>
                 <p>
-                    &nbsp;&nbsp;&nbsp;&nbsp;В данном разделе помимо калькулятора также представлены конспекты с объяснением тем.
+                    &nbsp;&nbsp;&nbsp;&nbsp;<b>В</b> данном разделе помимо калькулятора также представлены конспекты с объяснением тем.
                     То есть вы можете не только быстро посчитать необходимые числа, а также подтянуть западающие темы и закрепить знания на тренажерах.
                 </p>
 
