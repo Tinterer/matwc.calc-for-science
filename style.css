@@ -34,10 +34,10 @@ a {
     transform: translateY(50px);
 }
 
-.log_button a:hover {
+/*.log_button a:hover {
     color: white;
     font-size: 33px;
-}
+}*/
 
 .log_button:hover {
     color: white;
